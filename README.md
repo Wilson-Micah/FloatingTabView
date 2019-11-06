@@ -2,6 +2,16 @@
 
 ![TabView Example](Resources/example.gif)
 
+## Add to Project:
+
+```swift
+.package(url: "https://github.com/Wilson-Micah/FloatingTabView", .branch("master"))
+```
+
+or
+
+File > Swift Packages > Add Package Dependency > https://github.com/Wilson-Micah/FloatingTabView
+
 ## How to Use:
 
 ```swift
