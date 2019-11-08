@@ -22,9 +22,9 @@ let settingsTab = TabItem(image: .init(systemName: "settings"), title: "Settings
 
 /* Optional Parameters:
 ******************************************
-*	selectedIndex: Int				     *
-*	backgroundColor: Color				 *
-*	shadowRadius: CGFloat				 *
+*	selectedIndex: Int                   *
+*	backgroundColor: Color               *
+*	shadowRadius: CGFloat                *
 *	leadingTrailingOuterPadding: CGFloat *
 *	leadingTrailingInnerPadding: CGFloat *
 ******************************************
