@@ -8,7 +8,7 @@
 .package(url: "https://github.com/Wilson-Micah/FloatingTabView", .branch("master"))
 ```
 
-or in the Xcode menu navigation to:
+or in the Xcode menu navigate to:
 
 `File > Swift Packages > Add Package Dependency > https://github.com/Wilson-Micah/FloatingTabView`
 
