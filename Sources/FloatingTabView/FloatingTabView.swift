@@ -9,6 +9,7 @@
 import SwiftUI
 
 public struct FloatingTabView: View {
+	@Environment(\.presentationMode) var mode: Binding<PresentationMode>
 	@State public var selectedIndex = 0
 	public let tabs: [TabItem]
 	public let backgroundColor: Color
@@ -45,10 +46,16 @@ public struct FloatingTabView: View {
     public var body: some View {
 		GeometryReader { geometry in
 			ZStack(alignment: .bottom) {
-				self.tabs[self.selectedIndex].view
-					.scaledToFill()
-					.animation(nil)
-					.frame(width: geometry.size.width, height: geometry.size.height)
+				// We are drawing all the views because this allows us to keep state when switching between tabs. Hopefully at some point in the future there is a better solution to this.
+				ForEach(self.tabs.indices, id: \.self) { tabIndex in
+					self.tabs[tabIndex].view
+						.zIndex(self.selectedIndex == tabIndex ? 1 : 0)
+						.opacity(self.selectedIndex == tabIndex ? 1 : 0)
+						.scaledToFill()
+						.animation(nil)
+						.frame(width: geometry.size.width, height: geometry.size.height)
+						.background(Color.white)
+				}
 				
 				Capsule()
 					.foregroundColor(self.backgroundColor)
@@ -85,6 +92,7 @@ public struct FloatingTabView: View {
 							.clipped()
 						}
 					)
+					.zIndex(3)
 					.padding(.bottom, geometry.safeAreaInsets.bottom == 0 ? self.leadingTrailingOuterPadding : 0)
 			}
 			.animation(Animation.spring().speed(2.5))

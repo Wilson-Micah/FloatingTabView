@@ -34,6 +34,4 @@ window.rootViewController = UIHostingController(rootView: contentView)
 ```
 
 ## Nonworking Pieces:
-- When using NavigationView:
-	- When using a NavigationView state is lost when switching tabs.
-	- When selecting the already selected tab the navigation stack doesn't pop to the root view.
+- When using NavigationView and selecting the already selected tab the navigation stack doesn't pop to the root view.
