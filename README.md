@@ -1,6 +1,6 @@
 # FloatingTabView
 
-<img src="Resources/example.gif" alt="TabView Example" width="200"/>
+<img src="Resources/example.gif" alt="TabView Example" width="300"/>
 
 ## Add to Project:
 
