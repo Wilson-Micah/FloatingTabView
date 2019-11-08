@@ -89,6 +89,5 @@ public struct FloatingTabView: View {
 			}
 			.animation(Animation.spring().speed(2.5))
 		}
-//		.edgesIgnoringSafeArea(.init(arrayLiteral: .leading, .trailing, .bottom))
     }
 }
