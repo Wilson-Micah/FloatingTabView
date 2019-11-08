@@ -15,21 +15,22 @@ or in the Xcode menu navigate to:
 ## How to Use:
 
 ```swift
-let contentView = FloatingTabView(tabs: [
-		.init(image: .init(systemName: "house"), title: "Home", selectedColor: .orange, content: 
-			Text("Home View")
-		),
-		.init(image: .init(systemName: "flame"), title: "Flame", selectedColor: .orange, content:
-			Text("Flame View")
-		),
-		.init(image: .init(systemName: "chart.bar"), title: "Graph", selectedColor: .orange, content:
-			Text("Graph View")
-		),
-		.init(image: .init(systemName: "gear"), title: "Settings", selectedColor: .orange, content:
-			Text("Settings View")
-		),
-	])
-	
+let homeTab = TabItem(image: .init(systemName: "house"), title: "Home", selectedColor: .orange, content: HomeView())
+let feedTab = TabItem(image: .init(systemName: "flame"), title: "Feed", selectedColor: .orange, content: FeedView())
+let dataTab = TabItem(image: .init(systemName: "chart.bar"), title: "Data", selectedColor: .orange, content: DataView())
+let settingsTab = TabItem(image: .init(systemName: "settings"), title: "Settings", selectedColor: .orange, content: SettingsView())
+
+/* Optional Parameters:
+******************************************
+*	selectedIndex: Int				     *
+*	backgroundColor: Color				 *
+*	shadowRadius: CGFloat				 *
+*	leadingTrailingOuterPadding: CGFloat *
+*	leadingTrailingInnerPadding: CGFloat *
+******************************************
+*/
+let contentView = FloatingTabView(tabs: [homeTab, feedTab, dataTab, settingsTab])
+
 window.rootViewController = UIHostingController(rootView: contentView)
 ```
 
