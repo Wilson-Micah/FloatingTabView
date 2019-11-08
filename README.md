@@ -1,6 +1,6 @@
 # FloatingTabView
 
-<img src="Resources/example.gif" alt="TabView Example" width="120"/>
+<img src="Resources/example.gif" alt="TabView Example" width="200"/>
 
 ## Add to Project:
 
@@ -8,9 +8,9 @@
 .package(url: "https://github.com/Wilson-Micah/FloatingTabView", .branch("master"))
 ```
 
-or
+or in the Xcode menu navigation to:
 
-File > Swift Packages > Add Package Dependency > https://github.com/Wilson-Micah/FloatingTabView
+`File > Swift Packages > Add Package Dependency > https://github.com/Wilson-Micah/FloatingTabView`
 
 ## How to Use:
 
@@ -32,3 +32,8 @@ let contentView = FloatingTabView(tabs: [
 	
 window.rootViewController = UIHostingController(rootView: contentView)
 ```
+
+## Nonworking Pieces:
+- When using NavigationView:
+	- When using a NavigationView state is lost when switching tabs.
+	- When selecting the already selected tab the navigation stack doesn't pop to the root view.
