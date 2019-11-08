@@ -8,24 +8,21 @@
 
 import SwiftUI
 
-public struct FloatingTabView<Content: View>: View {
+public struct FloatingTabView: View {
 	@State public var selectedIndex = 0
 	public let tabs: [TabItem]
 	public let backgroundColor: Color
 	public let shadowRadius: CGFloat
 	public let leadingTrailingOuterPadding: CGFloat
 	public let leadingTrailingInnerPadding: CGFloat
-	public let content: (_ currentTab: Int) -> Content
 	
 	public init(selectedIndex: Int = 0,
 				tabs: [TabItem],
 				backgroundColor: Color = Color(#colorLiteral(red: 0.1333333333, green: 0.1568627451, blue: 0.1921568627, alpha: 1)),
 				shadowRadius: CGFloat = 2,
 				leadingTrailingOuterPadding: CGFloat = 20,
-				leadingTrailingInnerPadding: CGFloat = 10,
-				content: @escaping (_ currentTab: Int) -> Content) {
+				leadingTrailingInnerPadding: CGFloat = 10) {
 		self.tabs = tabs
-		self.content = content
 		self.backgroundColor = backgroundColor
 		self.shadowRadius = shadowRadius
 		self.leadingTrailingOuterPadding = leadingTrailingOuterPadding
@@ -48,9 +45,9 @@ public struct FloatingTabView<Content: View>: View {
     public var body: some View {
 		GeometryReader { geometry in
 			ZStack(alignment: .bottom) {
-				self.content(self.selectedIndex)
+				self.tabs[self.selectedIndex].view
+					.scaledToFill()
 					.animation(nil)
-					.edgesIgnoringSafeArea(.all)
 					.frame(width: geometry.size.width, height: geometry.size.height)
 				
 				Capsule()
@@ -92,5 +89,6 @@ public struct FloatingTabView<Content: View>: View {
 			}
 			.animation(Animation.spring().speed(2.5))
 		}
+//		.edgesIgnoringSafeArea(.init(arrayLiteral: .leading, .trailing, .bottom))
     }
 }
