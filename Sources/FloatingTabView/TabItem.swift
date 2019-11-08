@@ -8,15 +8,12 @@
 
 import SwiftUI
 
-public struct TabItem: Identifiable {
+public struct TabItem {
 	public let image: Image
 	public let title: String
 	public let selectedColor: Color
 	public let defaultColor: Color
 	public let view: AnyView
-	public var id: String {
-		title
-	}
 	
 	public init<Content: View>(image: Image, title: String, selectedColor: Color, defaultColor: Color = .white, content: Content) {
 		self.image = image

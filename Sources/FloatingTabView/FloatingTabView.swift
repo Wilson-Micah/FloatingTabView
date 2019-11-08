@@ -9,7 +9,6 @@
 import SwiftUI
 
 public struct FloatingTabView: View {
-	@Environment(\.presentationMode) var mode: Binding<PresentationMode>
 	@State public var selectedIndex = 0
 	public let tabs: [TabItem]
 	public let backgroundColor: Color
@@ -92,7 +91,7 @@ public struct FloatingTabView: View {
 							.clipped()
 						}
 					)
-					.zIndex(3)
+					.zIndex(2)
 					.padding(.bottom, geometry.safeAreaInsets.bottom == 0 ? self.leadingTrailingOuterPadding : 0)
 			}
 			.animation(Animation.spring().speed(2.5))
